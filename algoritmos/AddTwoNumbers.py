@@ -1,21 +1,6 @@
-from typing import Optional
-
- 
-class ListNode:
-    def __init__(self, val: int = 0, next: Optional["ListNode"] = None):
-        self.val = val
-        self.next = next
-
-
- 
 class Solution:
-    def addTwoNumbers(
-        self, 
-        l1: Optional[ListNode], 
-        l2: Optional[ListNode]
-    ) -> Optional[ListNode]:
-
-        dummy = ListNode()   
+    def addTwoNumbers(self, l1, l2):
+        dummy = ListNode(0)
         current = dummy
         carry = 0
 
@@ -35,34 +20,3 @@ class Solution:
                 l2 = l2.next
 
         return dummy.next
-
-
-
-def create_list(nums):
-    dummy = ListNode()
-    current = dummy
-    for n in nums:
-        current.next = ListNode(n)
-        current = current.next
-    return dummy.next
-
-
- 
-def print_list(node):
-    while node:
-        print(node.val, end=" -> ")
-        node = node.next
-    print("None")
-
-
- 
-if __name__ == "__main__":
-     
-    l1 = create_list([2, 4, 3])
-    l2 = create_list([5, 6, 4])
-
-    sol = Solution()
-    result = sol.addTwoNumbers(l1, l2)
-
-    print("Resultado:")
-    print_list(result)
